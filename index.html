@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+  </head>
+  <body class="page">
+
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+    </header>
+
+    <main>
+      <section class="profile">
+        <div class="profile__user">
+          <img class="profile__photo" src="images/profilePhoto.jpg" alt="Фото профиля">
+          <div class="profile__info">
+            <h1 class="profile__userName">Жак-Ив Кусто</h1>
+            <button class="profile__change"></button>
+            <h2 class="profile__job">Исследователь океана</h2>
+          </div>
+        </div>
+        <button class="profile__addPost"></button>
+      </section>
+
+      <section class="elements">
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/Perm.jpg" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Пермь</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/Moscow.jpg" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Москва</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/Elbrus.JPG" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Эльбрус</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/Sankt-Peterburg.jpg" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Санкт-Петербург</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/Baikal.JPG" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Байкал</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+        <div class="element">
+          <div class="element__photoConteiner">
+            <img class="element__photo" src="./images/More.JPG" alt="Фото из поста">
+          </div>
+          <div class="element__group">
+            <h1 class="element__title">Море</h1>
+            <button class="element__like"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2022 Mesto Russia</p>
+    </footer>
+
+    <div class="popup">
+      <div class="popup__container">
+        <form class="popup__body">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__input nameInput" type="text" name="UserName">
+          <input class="popup__input jobInput" type="text" name="UserJob">
+          <input class="popup__submit" type="submit" value="Сохранить">
+        </form>
+        <button class="popup__close"></button>
+      </div>
+    </div>
+
+    <script src="./script/index.js"></script>
+  </body>
+</html>

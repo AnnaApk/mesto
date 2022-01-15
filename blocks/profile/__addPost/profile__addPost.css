@@ -1,0 +1,29 @@
+.profile__addPost{
+  border: 2px solid white;
+  background: none;
+  background-image: url(../../../images/addPost.svg);
+  width: 150px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.profile__addPost:hover {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background-image: url(../../../images/addPostHover.svg);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 740px) {
+  .profile__addPost {
+    margin: 0 auto;
+    width: 282px;
+    background-image: url(../../../images/addPostSmall.svg);
+  }
+
+  .profile__addPost:hover {
+    background-image: url(../../../images/addPostHoverSmall.svg);
+  }
+}

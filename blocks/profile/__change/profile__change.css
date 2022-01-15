@@ -1,0 +1,28 @@
+.profile__change{
+  border: 1px solid white;
+  background: none;
+  background-image: url(../../../images/changeInfo.svg);
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile__change:hover {
+  border: 1px solid rgba(84, 84, 84, .6);
+  background-image: url(../../../images/changeInfoHover.svg);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 740px) {
+  .profile__change {
+    margin-left: 15px;
+    width: 18px;
+    height: 18px;
+    background-image: url(../../../images/changeInfoSmall.svg);
+  }
+
+  .profile__change:hover {
+    background-image: url(../../../images/changeInfoHoverSmall.svg);
+  }
+}
