@@ -15,69 +15,71 @@
     <main>
       <section class="profile">
         <div class="profile__user">
-          <img class="profile__photo" src="images/profilePhoto.jpg" alt="Фото профиля">
+          <div class="profile__photo-container">
+            <img class="profile__photo" src="images/profilePhoto.jpg" alt="Фото профиля">
+          </div>
           <div class="profile__info">
-            <h1 class="profile__userName">Жак-Ив Кусто</h1>
-            <button class="profile__change"></button>
+            <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+            <button class="profile__change" type="button"></button>
             <h2 class="profile__job">Исследователь океана</h2>
           </div>
         </div>
-        <button class="profile__addPost"></button>
+        <button class="profile__add-post" type="button"></button>
       </section>
 
       <section class="elements">
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/Perm.jpg" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Пермь</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Пермь</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/Moscow.jpg" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Москва</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Москва</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/Elbrus.JPG" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Эльбрус</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Эльбрус</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/Sankt-Peterburg.jpg" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Санкт-Петербург</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Санкт-Петербург</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/Baikal.JPG" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Байкал</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Байкал</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__photoConteiner">
+          <div class="element__photo-conteiner">
             <img class="element__photo" src="./images/More.JPG" alt="Фото из поста">
           </div>
           <div class="element__group">
-            <h1 class="element__title">Море</h1>
-            <button class="element__like"></button>
+            <h2 class="element__title">Море</h2>
+            <button class="element__like" type="button"></button>
           </div>
         </div>
       </section>
@@ -89,13 +91,13 @@
 
     <div class="popup">
       <div class="popup__container">
-        <form class="popup__body">
+        <form class="popup__body" name="profileForm">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input nameInput" type="text" name="UserName">
-          <input class="popup__input jobInput" type="text" name="UserJob">
+          <input class="popup__input popup__input_type_name" type="text" name="UserName">
+          <input class="popup__input popup__input_type_job" type="text" name="UserJob">
           <input class="popup__submit" type="submit" value="Сохранить">
+          <button class="popup__close" type="button"></button>
         </form>
-        <button class="popup__close"></button>
       </div>
     </div>
 

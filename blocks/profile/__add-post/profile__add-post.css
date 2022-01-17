@@ -1,4 +1,4 @@
-.profile__addPost{
+.profile__add-post{
   border: 2px solid white;
   background: none;
   background-image: url(../../../images/addPost.svg);
@@ -10,20 +10,15 @@
   border-radius: 2px;
 }
 
-.profile__addPost:hover {
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  background-image: url(../../../images/addPostHover.svg);
+.profile__add-post:hover {
+  opacity: .6;
   cursor: pointer;
 }
 
 @media screen and (max-width: 740px) {
-  .profile__addPost {
+  .profile__add-post {
     margin: 0 auto;
     width: 282px;
     background-image: url(../../../images/addPostSmall.svg);
-  }
-
-  .profile__addPost:hover {
-    background-image: url(../../../images/addPostHoverSmall.svg);
   }
 }

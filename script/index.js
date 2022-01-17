@@ -1,25 +1,25 @@
-const ButtonChangeProfileInfo = document.querySelector('.profile__change');
-const ClosePopup = document.querySelector('.popup__close');
+const buttonChangeProfileInfo = document.querySelector('.profile__change');
+const closePopup = document.querySelector('.popup__close');
 const popup = document.querySelector('.popup');
 
 let formElement = document.querySelector('.popup__body');
-let nameInput = formElement.querySelector('.nameInput');
-let jobInput = formElement.querySelector('.jobInput');
+let nameInput = formElement.querySelector('.popup__input_type_name');
+let jobInput = formElement.querySelector('.popup__input_type_job');
 const submit = formElement.querySelector('.popup__submit');
 
-function openPopUpFieled() {
-  let profileName = document.querySelector('.profile__userName').innerText;
-  let profileJob = document.querySelector('.profile__job').innerText;
+let profileName = document.querySelector('.profile__user-name');
+let profileJob = document.querySelector('.profile__job');
 
-  nameInput.value = profileName;
-  jobInput.value = profileJob;
+function openPopUpFieled() {
+  nameInput.value = profileName.innerText;
+  jobInput.value = profileJob.innerText;
 }
 
 function togglePopUp() {
   popup.classList.toggle('popup_active');
 }
 
-ButtonChangeProfileInfo.addEventListener('click', function() {
+buttonChangeProfileInfo.addEventListener('click', function() {
   togglePopUp();
   openPopUpFieled();
 })
@@ -27,16 +27,11 @@ ButtonChangeProfileInfo.addEventListener('click', function() {
 function formSubmitHandler (evt) {
   evt.preventDefault();
 
-  nameInput.value;
-  jobInput.value;
-
-  let profileName = document.querySelector('.profile__userName');
   profileName.textContent = nameInput.value;
-  let profileJob = document.querySelector('.profile__job');
   profileJob.textContent = jobInput.value;
+  togglePopUp();
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
-submit.addEventListener('click', togglePopUp);
+formElement.addEventListener('submit', formSubmitHandler);
 
-ClosePopup.addEventListener ('click', togglePopUp);
+closePopup.addEventListener ('click', togglePopUp);

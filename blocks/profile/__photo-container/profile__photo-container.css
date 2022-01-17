@@ -1,0 +1,14 @@
+.profile__photo-container {
+  display: block;
+  margin: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 740px) {
+  .profile__photo-container {
+    margin: 0 auto;
+  }
+}

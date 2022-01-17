@@ -9,8 +9,7 @@
 }
 
 .profile__change:hover {
-  border: 1px solid rgba(84, 84, 84, .6);
-  background-image: url(../../../images/changeInfoHover.svg);
+  opacity: .6;
   cursor: pointer;
 }
 
@@ -20,9 +19,5 @@
     width: 18px;
     height: 18px;
     background-image: url(../../../images/changeInfoSmall.svg);
-  }
-
-  .profile__change:hover {
-    background-image: url(../../../images/changeInfoHoverSmall.svg);
   }
 }

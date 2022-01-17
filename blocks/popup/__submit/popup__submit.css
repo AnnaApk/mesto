@@ -5,9 +5,10 @@
   border-radius: 2px;
   color: #fff;
   font-size: 18px;
+  line-height: 22px;
   text-align: center;
   font-weight: 400;
-  margin: 48px auto 0;
+  margin: 48px auto 37px;
   border: none;
   padding: 0;
 }
@@ -24,5 +25,6 @@
     margin-top: 30px;
     margin-bottom: 25px;
     font-size: 14px;
+    line-height: 17px;
   }
 }

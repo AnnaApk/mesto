@@ -10,10 +10,11 @@
 }
 
 .element__like:hover {
-  background-image: url(../../../images/likeHover.svg);
+  opacity: .5;
   cursor: pointer;
 }
 
 .element__like:active {
   background-image: url(../../../images/likeActive.svg);
+  opacity: 1;
 }
