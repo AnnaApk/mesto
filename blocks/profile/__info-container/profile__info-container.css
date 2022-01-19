@@ -1,7 +1,6 @@
 .profile__info-container {
   display: flex;
   align-items: center;
-  width: 336px;
   justify-content: space-between;
 }
 
