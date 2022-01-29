@@ -30,60 +30,18 @@
       </section>
 
       <section class="elements">
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/Perm.jpg" alt="Фото из поста">
+        <template class="element__template">
+          <div class="element">
+            <div class="element__photo-container">
+              <img class="element__photo" src="#" alt="Фото из поста">
+            </div>
+            <div class="element__group">
+              <h2 class="element__title">Пермь</h2>
+              <button class="element__like" type="button"></button>
+            </div>
+            <button class="element__delete" type="button"></button>
           </div>
-          <div class="element__group">
-            <h2 class="element__title">Пермь</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/Moscow.jpg" alt="Фото из поста">
-          </div>
-          <div class="element__group">
-            <h2 class="element__title">Москва</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/Elbrus.JPG" alt="Фото из поста">
-          </div>
-          <div class="element__group">
-            <h2 class="element__title">Эльбрус</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/Sankt-Peterburg.jpg" alt="Фото из поста">
-          </div>
-          <div class="element__group">
-            <h2 class="element__title">Санкт-Петербург</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/Baikal.JPG" alt="Фото из поста">
-          </div>
-          <div class="element__group">
-            <h2 class="element__title">Байкал</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <div class="element__photo-conteiner">
-            <img class="element__photo" src="./images/More.JPG" alt="Фото из поста">
-          </div>
-          <div class="element__group">
-            <h2 class="element__title">Море</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-        </div>
+        </template>
       </section>
     </main>
 
@@ -91,15 +49,37 @@
       <p class="footer__text">&copy; 2022 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_profile">
       <div class="popup__container">
         <form class="popup__body" name="profileForm">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input class="popup__input popup__input_type_name" type="text" name="UserName">
           <input class="popup__input popup__input_type_job" type="text" name="UserJob">
           <input class="popup__submit" type="submit" value="Сохранить">
-          <button class="popup__close" type="button"></button>
+          <button class="popup__close popup__close_profile" type="button"></button>
         </form>
+      </div>
+    </div>
+
+    <div class="popup popup_new-post">
+      <div class="popup__container">
+        <form class="popup__body" name="addPostForm">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__input popup__input_type_place" type="text" name="NewPlace" value="" placeholder="Название">
+          <input class="popup__input popup__input_type_photo" type="url" name="NewPhoto" value="" placeholder="Ссылка на картинку">
+          <input class="popup__submit" type="submit" value="Сохранить">
+          <button class="popup__close popup__close_add-post" type="button"></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_photo">
+      <div class="popup__container">
+        <div class="popup__photo-group">
+          <img class="popup__photo" src="#" alt="Просмотр фото">
+          <h3 class="popup__photo-title"></h3>
+          <button class="popup__close popup__close_photo" type="button"></button>
+        </div>
       </div>
     </div>
 
