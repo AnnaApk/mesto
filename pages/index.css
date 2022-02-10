@@ -43,3 +43,9 @@
 @import url(../blocks/popup/__photo-group/popup__photo-group.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/__photo-title/popup__photo-title.css);
+
+@import url(../blocks/popup/__input/_type_name/popup__input_type_name.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__submit/_disabled/popup__submit-disabled.css);
+@import url(../blocks/popup/__input-error/_visible/popup__input-error_visible.css);

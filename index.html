@@ -51,10 +51,12 @@
 
     <div class="popup popup_profile">
       <div class="popup__container">
-        <form class="popup__body" name="profileForm">
+        <form class="popup__body" name="profileForm" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input popup__input_type_name" type="text" name="UserName">
-          <input class="popup__input popup__input_type_job" type="text" name="UserJob">
+          <input id="name-input" class="popup__input popup__input_type_name" type="text" name="UserName" required minlength="2" maxlength="40">
+          <span class="name-input-error popup__input-error"></span>
+          <input id="job-input" class="popup__input popup__input_type_job" type="text" name="UserJob" required minlength="2" maxlength="200">
+          <span class="job-input-error popup__input-error"></span>
           <input class="popup__submit" type="submit" value="Сохранить">
           <button class="popup__close popup__close_profile" type="button"></button>
         </form>
@@ -63,10 +65,12 @@
 
     <div class="popup popup_new-post">
       <div class="popup__container">
-        <form class="popup__body " name="addPostForm">
+        <form class="popup__body " name="addPostForm" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_type_place" type="text" name="NewPlace" value="" placeholder="Название">
-          <input class="popup__input popup__input_type_photo" type="url" name="NewPhoto" value="" placeholder="Ссылка на картинку">
+          <input id="new-place-input" class="popup__input popup__input_type_place" type="text" name="NewPlace" value="" placeholder="Название" required minlength="1" maxlength="30">
+          <span class="new-place-input-error popup__input-error"></span>
+          <input id="new-photo-input" class="popup__input popup__input_type_photo" type="url" name="NewPhoto" value="" placeholder="Ссылка на картинку" required>
+          <span class="new-photo-input-error popup__input-error"></span>
           <input class="popup__submit" type="submit" value="Сохранить">
           <button class="popup__close popup__close_add-post" type="button"></button>
         </form>
@@ -82,7 +86,7 @@
         </div>
       </div>
     </div>
-
     <script src="./script/index.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>
