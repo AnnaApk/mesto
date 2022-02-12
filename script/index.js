@@ -51,7 +51,7 @@ const popups = document.querySelectorAll('.popup');
 
 popups.forEach((el) => {
   el.addEventListener('mousedown', (evt) => {
-      if (!evt.target.closest('.popup_overlay')) {
+      if (!evt.target.closest('.popup__overlay')) {
         closePopup(el);
       };
       if (evt.target.classList.contains('popup__close')) {
