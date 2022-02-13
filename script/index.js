@@ -46,6 +46,8 @@ const buttonSubmitAddNewPost = popupNewPost.querySelector('.popup__submit');
 
 const popupPhoto = document.querySelector('.popup_photo');
 const buttonClosePopupPhoto = document.querySelector('.popup__close_photo');
+const popupImageOpen = document.querySelector('.popup__image');
+const popupTitleOfImage = document.querySelector('.popup__photo-title');
 
 const popups = document.querySelectorAll('.popup');
 
@@ -106,7 +108,7 @@ function handleAddingPostSubmit (evt) {
   closePopup(popupNewPost);
   submitAddingPost.reset();
 
-  buttonSubmitAddNewPost.setAttribute('disabled', '');
+  buttonSubmitAddNewPost.setAttribute('disabled', 'true');
   buttonSubmitAddNewPost.classList.add('popup__submit_disabled');
 };
 
@@ -120,10 +122,9 @@ function toggleLike(el) {
 
 function openPhotoPopup(evt) {
   const titlePhoto = evt.target.closest('.element').querySelector('.element__title').textContent;
-  const popupImageOpen = document.querySelector('.popup__image');
   popupImageOpen.src = evt.target.src;
   popupImageOpen.alt = titlePhoto;
-  document.querySelector('.popup__photo-title').textContent = titlePhoto;
+  popupTitleOfImage.textContent = titlePhoto;
 
   openPopup(popupPhoto);
 };
