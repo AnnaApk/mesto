@@ -1,8 +1,7 @@
-import Card from './card.js';
+import Card from './Card.js';
 import {FormValidator} from './FormValidator.js';
 
 const buttonChangeProfileInfo = document.querySelector('.profile__change');
-const closeProfilePopup = document.querySelector('.popup__close_profile');
 const popupProfile = document.querySelector('.popup_profile');
 const profileForm = document.querySelector('.popup__body');
 const nameInput = profileForm.querySelector('.popup__input_type_name');
@@ -46,18 +45,14 @@ const validationList = {
   errorClass: 'popup__input-error_visible'
 };
 
-const elementTemplate = document.querySelector('.element__template').content;
 const elements = document.querySelector('.elements');
 const popupNewPost = document.querySelector('.popup_new-post');
 const buttonAddNewPost = document.querySelector('.profile__add-post');
-const closeAddPostPopup = document.querySelector('.popup__close_add-post');
 const placeInput = popupNewPost.querySelector('.popup__input_type_place');
 const photoInput = popupNewPost.querySelector('.popup__input_type_photo');
 const submitAddingPost = popupNewPost.querySelector('.popup__body');
-const buttonSubmitAddNewPost = popupNewPost.querySelector('.popup__submit');
 
 const popupPhoto = document.querySelector('.popup_photo');
-const buttonClosePopupPhoto = document.querySelector('.popup__close_photo');
 const popupImageOpen = document.querySelector('.popup__image');
 const popupTitleOfImage = document.querySelector('.popup__photo-title');
 
@@ -71,12 +66,20 @@ function openCardPopup(name, link) {
   openPopup(popupPhoto);
 }
 
-initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link, '.element__template', openCardPopup);
+function creatCard(item) {
+  const card = new Card(item.name, item.link, '.element__template', openCardPopup); 
   const cardElement = card.generateCard();
 
-  elements.prepend(cardElement);
-})
+  return cardElement
+};
+
+function renderElement(el, array) {
+  array.prepend(el);
+};
+
+initialCards.forEach((item) => {
+  renderElement(creatCard(item), elements);
+});
 
 const editProfileValidator = new FormValidator(validationList, popupProfile)
 const editCardValidator = new FormValidator(validationList, popupNewPost)
@@ -118,54 +121,15 @@ function handleProfileFormSubmit (evt) {
   closePopup(popupProfile);
 };
 
-function getElement(name, link) {
-  const newElement = elementTemplate.cloneNode(true);
-  const newElementPhoto = newElement.querySelector('.element__photo');
-  newElement.querySelector('.element__title').textContent = name;
-  newElementPhoto.src = link;
-  newElementPhoto.alt = name;
-  addElementListeners(newElement);
-
-  return newElement;
-};
-
-function renderElement(el, array) {
-  array.prepend(el);
-};
-
 function handleAddingPostSubmit (evt) {
   evt.preventDefault();
   const name = placeInput.value;
   const link = photoInput.value;
-  renderElement(getElement(name, link), elements);
+  const card = new Card(name, link, '.element__template', openCardPopup);
+  const cardElement = card.generateCard();
+  renderElement(cardElement, elements);
   closePopup(popupNewPost);
   submitAddingPost.reset();
-
-  buttonSubmitAddNewPost.setAttribute('disabled', 'true');
-  buttonSubmitAddNewPost.classList.add('popup__submit_disabled');
-};
-
-function deletePost(evt) {
-  evt.target.closest('.element').remove();
-};
-
-function toggleLike(el) {
-  el.target.classList.toggle('element__like_active');
-};
-
-function openPhotoPopup(evt) {
-  const titlePhoto = evt.target.closest('.element').querySelector('.element__title').textContent;
-  popupImageOpen.src = evt.target.src;
-  popupImageOpen.alt = titlePhoto;
-  popupTitleOfImage.textContent = titlePhoto;
-
-  openPopup(popupPhoto);
-};
-
-function addElementListeners(el) {
-  el.querySelector('.element__photo').addEventListener('click', openPhotoPopup);
-  el.querySelector('.element__like').addEventListener('click', toggleLike);
-  el.querySelector('.element__delete').addEventListener('click', deletePost);
 };
 
 function closeByEscape(evt) {
@@ -178,14 +142,14 @@ function closeByEscape(evt) {
 buttonChangeProfileInfo.addEventListener('click', () => {
   openPopup(popupProfile);
   openPopUpProfileFieled();
-  editProfileValidator.resetErrors();
+  editProfileValidator.resetValidation();
 });
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 buttonAddNewPost.addEventListener('click', ()=> {
   openPopup(popupNewPost);
-  editCardValidator.resetErrors(popupNewPost);
+  editCardValidator.resetValidation();
 });
 
 submitAddingPost.addEventListener('submit', handleAddingPostSubmit);
