@@ -1,4 +1,4 @@
-import Card from './Card.js';
+import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 
 const buttonChangeProfileInfo = document.querySelector('.profile__change');
@@ -67,7 +67,7 @@ function openCardPopup(name, link) {
 }
 
 function creatCard(item) {
-  const card = new Card(item.name, item.link, '.element__template', openCardPopup); 
+  const card = new Card(item.name, item.link, '.element__template', openCardPopup);
   const cardElement = card.generateCard();
 
   return cardElement
@@ -123,11 +123,12 @@ function handleProfileFormSubmit (evt) {
 
 function handleAddingPostSubmit (evt) {
   evt.preventDefault();
-  const name = placeInput.value;
-  const link = photoInput.value;
-  const card = new Card(name, link, '.element__template', openCardPopup);
-  const cardElement = card.generateCard();
-  renderElement(cardElement, elements);
+
+  const item = {
+    name: placeInput.value,
+    link: photoInput.value
+  };
+  renderElement(creatCard(item), elements);
   closePopup(popupNewPost);
   submitAddingPost.reset();
 };
