@@ -1,9 +1,9 @@
 export class Card {
-  constructor(title, link, selector, action) {
+  constructor(title, link, selector, handleCardClick) {
     this._title = title;
     this._link = link;
     this._selector = selector;
-    this._action = action
+    this._handleCardClick = handleCardClick
   }
 
   _getTemplate() {
@@ -27,7 +27,7 @@ export class Card {
   _addElementListeners = () => {
     this._likeButton.addEventListener('click', this._toggleLike);
     this._deleteButton.addEventListener('click', this._deletePost);
-    this._card.addEventListener('click', () => this._action(this._title, this._link));
+    this._card.addEventListener('click', ()=>this._handleCardClick(this._title, this._link));
   };
 
   generateCard() {
