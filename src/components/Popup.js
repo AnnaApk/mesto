@@ -19,7 +19,7 @@ export default class Popup {
     };
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     this._popup.addEventListener('mousedown', (evt) => {
       if (!evt.target.closest('.popup__overlay')) {
         this.close();

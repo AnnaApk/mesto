@@ -27,16 +27,17 @@ export class Card {
   _addElementListeners = () => {
     this._likeButton.addEventListener('click', this._toggleLike);
     this._deleteButton.addEventListener('click', this._deletePost);
-    this._card.addEventListener('click', ()=>this._handleCardClick(this._title, this._link));
+    this._cardImage.addEventListener('click', ()=>this._handleCardClick(this._title, this._link));
   };
 
   generateCard() {
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector('.element__like');
     this._deleteButton = this._element.querySelector('.element__delete');
-    this._card = this._element.querySelector('.element__photo');
+    this._cardImage = this._element.querySelector('.element__photo');
 
-    this._card.src = this._link;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._title;
     this._element.querySelector('.element__title').textContent = this._title;
 
     this._addElementListeners();

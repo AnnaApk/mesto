@@ -1,0 +1,9 @@
+export const buttonChangeProfileInfo = document.querySelector('.profile__change');
+export const popupProfile = document.querySelector('.popup_profile');
+export const profileForm = document.querySelector('.popup__body');
+export const nameInput = profileForm.querySelector('.popup__input_type_name');
+export const jobInput = profileForm.querySelector('.popup__input_type_job');
+export const array = document.querySelector('.elements');
+export const elements = '.elements';
+export const popupNewPost = document.querySelector('.popup_new-post');
+export const buttonAddNewPost = document.querySelector('.profile__add-post');
