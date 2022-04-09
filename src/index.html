@@ -20,10 +20,10 @@
           </div>
           <div class="profile__info">
             <div class="profile__info-container">
-              <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+              <h1 class="profile__user-name"></h1>
               <button class="profile__change" type="button"></button>
             </div>
-            <h2 class="profile__job">Исследователь океана</h2>
+            <h2 class="profile__job"></h2>
           </div>
         </div>
         <button class="profile__add-post" type="button"></button>
@@ -37,7 +37,10 @@
             </div>
             <div class="element__group">
               <h2 class="element__title">Пермь</h2>
-              <button class="element__like" type="button"></button>
+              <div class="element__like-group">
+                <button class="element__like" type="button"></button>
+                <span class="element__likes-count"></span>
+            </div>
             </div>
             <button class="element__delete" type="button"></button>
           </div>
@@ -63,6 +66,18 @@
       </div>
     </div>
 
+    <div class="popup popup_edit-avatar">
+      <div class="popup__container">
+        <form class="popup__body popup__overlay" name="editAvatar" novalidate>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <input id="new-avatar-input" class="popup__input popup__input_type_avatar" type="url" name="newAvatar" value="" placeholder="Ссылка на картинку" required>
+          <span class="new-avatar-input-error popup__input-error"></span>
+          <input class="popup__submit" type="submit" value="Сохранить">
+          <button class="popup__close popup__close_avatar" type="button"></button>
+        </form>
+      </div>
+    </div>
+
     <div class="popup popup_new-post">
       <div class="popup__container">
         <form class="popup__body popup__overlay" name="addPostForm" novalidate>
@@ -72,6 +87,16 @@
           <input id="new-photo-input" class="popup__input popup__input_type_photo" type="url" name="NewPhoto" value="" placeholder="Ссылка на картинку" required>
           <span class="new-photo-input-error popup__input-error"></span>
           <input class="popup__submit" type="submit" value="Сохранить">
+          <button class="popup__close popup__close_add-post" type="button"></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_delete-post">
+      <div class="popup__container">
+        <form class="popup__body popup__overlay" name="deletePostForm" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <input class="popup__submit popup__submit_small" type="submit" value="Да">
           <button class="popup__close popup__close_add-post" type="button"></button>
         </form>
       </div>

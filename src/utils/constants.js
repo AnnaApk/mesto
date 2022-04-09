@@ -6,6 +6,8 @@ export const jobInput = profileForm.querySelector('.popup__input_type_job');
 export const elements = '.elements';
 export const popupNewPost = document.querySelector('.popup_new-post');
 export const buttonAddNewPost = document.querySelector('.profile__add-post');
+export const editAvatarButton = document.querySelector('.profile__photo-container');
+export const popupAvatar = document.querySelector('.popup_edit-avatar');
 
 export const initialCards = [
   {

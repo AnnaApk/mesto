@@ -5,3 +5,7 @@
   max-height: -webkit-fill-available;
   object-fit: cover;
 }
+
+.profile__photo:hover {
+  cursor: pointer;
+}
