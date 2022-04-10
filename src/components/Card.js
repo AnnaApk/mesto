@@ -24,6 +24,7 @@ export class Card {
 
   deletePost = () => {
     this._element.remove();
+    this._element = null;
   };
 
   _addLike() {

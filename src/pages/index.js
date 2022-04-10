@@ -32,17 +32,16 @@ function renderLoading(button, isLoading) {
   }
 }
 
-api.getUserInfo()
+Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then((res) => {
-    user.setUserInfo({userName: res.name, userJob: res.about})
-    userId = res._id 
-    user.setAvatar({avatar: res.avatar})
-  })
 
-api.getInitialCards()
-  .then((res) => {
+    user.setUserInfo({userName: res[0].name, userJob: res[0].about})
+    userId = res[0]._id 
+    user.setAvatar({avatar: res[0].avatar})
+
+    res[1].reverse()
     if (userId) {
-      res.forEach(data => {
+      res[1].forEach(data => {
         const card = creatCard({
           title:data.name,
           link:data.link,
@@ -54,6 +53,9 @@ api.getInitialCards()
         cardList.addItem(card)
       })
     }
+  })
+  .catch((err) => {
+    console.log(err);
   })
 
 const popupCard = new PopupWithImage('.popup_photo');  
@@ -74,9 +76,12 @@ function creatCard({title, link, likes, id, userId, ownerId}) {
           card.deletePost();
         })
         .then(()=>{
-          renderLoading(submitDeleteCard, false)
           popupDeleteCard.close();
         })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => renderLoading(submitDeleteCard, false))
     })
   },
   (id) => {
@@ -85,10 +90,16 @@ function creatCard({title, link, likes, id, userId, ownerId}) {
         .then((res) => {
           card.setLikes(res.likes)
         })
+        .catch((err) => {
+          console.log(err);
+        })
     } else {
       api.addLikes(id)
         .then((res) => {
           card.setLikes(res.likes)
+        })
+        .catch((err) => {
+          console.log(err);
         })
     }   
   }
@@ -114,9 +125,12 @@ const popupWithNewPost = new PopupWithForm('.popup_new-post', (item, button) => 
       cardList.addItem(cardElementNew)
     })
     .then(() => {
-      renderLoading(button, false)
       popupWithNewPost.close()
     })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => renderLoading(button, false))
 });
 
 cardList.renderItems();
@@ -136,9 +150,12 @@ const popupUserProfile = new PopupWithForm('.popup_profile', (data, button) => {
       user.setUserInfo({userName: res.name, userJob: res.about})
     })
     .then(() => {
-      renderLoading(button, false)
       popupUserProfile.close()
     })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => renderLoading(button, false))
 });
 
 popupUserProfile.setEventListeners();
@@ -160,9 +177,12 @@ const popupEditAvatar = new PopupWithForm('.popup_edit-avatar', (link, button) =
       user.setAvatar({avatar: res.avatar})
     })
     .then(() => {
-      renderLoading(button, false)
       popupEditAvatar.close()
     })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => renderLoading(button, false))
 });
 popupEditAvatar.setEventListeners();
 

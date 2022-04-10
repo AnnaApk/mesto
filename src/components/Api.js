@@ -4,24 +4,25 @@ class Api {
     this._headers = headers
   }
 
+  _getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
+} 
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
   
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   editProfile(name, about) {
@@ -33,10 +34,7 @@ class Api {
         about
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   editAvatar(avatar) {
@@ -47,10 +45,7 @@ class Api {
         avatar
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   addNewCard(name, link) {
@@ -62,10 +57,7 @@ class Api {
         link
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   deleteCard(id) {
@@ -73,10 +65,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   deleteLikes(id) {
@@ -84,10 +73,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 
   addLikes(id) {
@@ -95,10 +81,7 @@ class Api {
       method: 'PUT',
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-    .catch((err) => {
-      console.log(err);
-    })
+    .then(res => this._getResponseData(res))
   }
 }
 
